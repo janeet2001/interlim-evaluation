@@ -10,6 +10,7 @@ namespace StudentsComputerCentre.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
+    // Define Database property and creater variable dbContext
         private readonly StudentTeacherDbContext dbContext;
 
         public StudentsController(StudentTeacherDbContext dbContext)
@@ -37,7 +38,7 @@ namespace StudentsComputerCentre.Controllers
 
         //GET Single Student by iRoll
         [HttpGet]
-        [Route("{iRoll:int}")]
+        [Route("{iRoll:int}")]  // to know about one specific id
         public IActionResult GetbyiRoll([FromRoute] int iRoll) { 
         
             var studentDomain = dbContext.studentes.FirstOrDefault(x => x.iRoll == iRoll);
